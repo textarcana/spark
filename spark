@@ -68,10 +68,14 @@ spark()
   local f=$(( (($max-$min)<<8)/(${#ticks[@]}-1) ))
   (( f < 1 )) && f=1
 
+  echo -n "$max "
+
   for n in $numbers
   do
     echo -n ${ticks[$(( ((($n-$min)<<8)/$f) ))]}
   done
+
+  echo -n " $min"
   echo
 }
 
